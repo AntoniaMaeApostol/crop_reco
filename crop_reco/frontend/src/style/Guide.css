@@ -1,0 +1,75 @@
+.guide__range {
+  display: inline-block;
+  margin-bottom: 10px;
+  color: #f6cf4b;
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.guide__tips {
+  display: grid;
+  gap: 12px;
+  max-width: 760px;
+}
+
+.guide__tips li {
+  position: relative;
+  padding: 16px 20px 16px 50px;
+  border-radius: 14px;
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  font-size: 15px;
+  line-height: 1.5;
+}
+
+.guide__tips li::before {
+  content: "✓";
+  position: absolute;
+  left: 18px;
+  top: 14px;
+  color: #67b348;
+  font-weight: 700;
+}
+
+.guide__faq { display: grid; gap: 12px; max-width: 800px; }
+
+.guide__faq details {
+  border-radius: 14px;
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.14);
+}
+
+.guide__faq summary {
+  position: relative;
+  padding: 18px 54px 18px 22px;
+  font-weight: 600;
+  cursor: pointer;
+  list-style: none;
+}
+
+.guide__faq summary::-webkit-details-marker { display: none; }
+
+.guide__faq summary::after {
+  content: "";
+  position: absolute;
+  right: 24px;
+  top: 50%;
+  width: 9px;
+  height: 9px;
+  border-right: 2px solid #f6cf4b;
+  border-bottom: 2px solid #f6cf4b;
+  transform: translateY(-70%) rotate(45deg);
+  transition: transform 0.2s;
+}
+
+.guide__faq details[open] summary::after {
+  transform: translateY(-30%) rotate(-135deg);
+}
+
+.guide__faq p {
+  margin: 0;
+  padding: 0 22px 20px;
+  font-size: 15px;
+  line-height: 1.6;
+  opacity: 0.85;
+}

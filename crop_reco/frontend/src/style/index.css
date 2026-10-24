@@ -1,0 +1,31 @@
+:root {
+  --teal: #1b3532;
+  --forest-dark: #1a2616;
+  --forest-mid: #34501f;
+  --forest-light: #546e2c;
+  --white: #ffffff;
+  --container: 1920px;
+  --gutter: clamp(24px, 9vw, 170px);
+  --gutter-hero: clamp(24px, 12vw, 230px);
+  --banner-h: 58px;
+  --font-body: "Inter", system-ui, sans-serif;
+  --font-display: "Oswald", "Arial Narrow", sans-serif;
+}
+ 
+*, *::before, *::after { box-sizing: border-box; }
+ 
+html, body, #root { min-height: 100%; }
+ 
+body {
+  margin: 0;
+  font-family: var(--font-body);
+  color: var(--white);
+  background: var(--teal);
+  -webkit-font-smoothing: antialiased;
+}
+ 
+a { color: inherit; }
+img { max-width: 100%; display: block; }
+ul { list-style: none; margin: 0; padding: 0; }
+ 
+:focus-visible { outline: 2px solid #f6cf4b; outline-offset: 3px; }

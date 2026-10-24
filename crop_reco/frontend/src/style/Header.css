@@ -1,0 +1,18 @@
+.header {
+  height: var(--banner-h);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 16px;
+  background: var(--teal);
+  text-align: center;
+}
+ 
+.header p {
+  margin: 0;
+  font-size: 15px;
+  font-weight: 400;
+}
+ 
+.header a { text-decoration: underline; }
+.header a:hover { text-decoration-thickness: 2px; }

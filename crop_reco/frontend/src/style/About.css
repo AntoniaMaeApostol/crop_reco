@@ -1,0 +1,43 @@
+.about__stats {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 20px;
+  padding: 36px;
+  border-radius: 20px;
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  text-align: center;
+}
+
+.about__stats strong {
+  display: block;
+  color: #f6cf4b;
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: clamp(2.6rem, 5vw, 4rem);
+  line-height: 1;
+}
+
+.about__stats span { font-size: 15px; opacity: 0.85; }
+
+.about__chips { display: flex; flex-wrap: wrap; gap: 10px; }
+
+.about__chip {
+  padding: 8px 18px;
+  border-radius: 999px;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  background: rgba(0, 0, 0, 0.2);
+  font-size: 14px;
+}
+
+.about__note {
+  max-width: 720px;
+  margin: 28px 0 0;
+  font-size: 13px;
+  line-height: 1.6;
+  opacity: 0.65;
+}
+
+@media (max-width: 600px) {
+  .about__stats { grid-template-columns: 1fr; padding: 24px; }
+}
