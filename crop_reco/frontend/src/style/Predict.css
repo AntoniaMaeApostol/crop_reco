@@ -13,6 +13,7 @@
   z-index: 0;
 }
 
+/* dark layer so the form and text stay readable */
 .predict__overlay {
   position: absolute;
   inset: 0;
@@ -24,14 +25,16 @@
   .predict__video { display: none; }
 }
 
+/* keep content above the video */
 .predict__hero,
 .predict__body {
   position: relative;
   z-index: 1;
 }
 
+/* ---------- Hero ---------- */
 .predict__hero {
-  padding: 170px 0 48px;
+  padding: 170px 0 48px; /* top space clears the navbar */
 }
 
 .predict__hero-inner,
@@ -70,6 +73,7 @@
   opacity: 0.9;
 }
 
+/* ---------- Layout ---------- */
 .predict__body {
   display: grid;
   grid-template-columns: minmax(0, 1.25fr) minmax(0, 1fr);
@@ -100,6 +104,7 @@
   margin-bottom: 26px;
 }
 
+/* ---------- Form ---------- */
 .predict__fields {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -138,6 +143,7 @@
   text-align: right;
 }
 
+/* hide the up/down arrows on number inputs */
 .field__value input[type="number"] {
   appearance: textfield;
   -moz-appearance: textfield;
@@ -189,6 +195,7 @@
   border: 2px solid var(--forest-dark);
 }
 
+/* buttons */
 .predict__actions {
   display: flex;
   align-items: center;
@@ -209,6 +216,8 @@
   transition: transform 0.15s, background 0.15s;
 }
 
+.btn-pill:hover:not(:disabled) { background: #f6cf4b; transform: translateY(-2px); }
+.btn-pill:disabled { opacity: 0.7; cursor: wait; }
 
 .link-btn {
   padding: 0;
@@ -217,16 +226,15 @@
   color: var(--white);
   font: inherit;
   font-size: 14px;
-  text-decoration: none;
+  text-decoration: underline;
   cursor: pointer;
   opacity: 0.85;
 }
 
-.link-btn:hover { color: #c9132b; opacity: 1; }
+.link-btn:hover { color: #f6cf4b; opacity: 1; }
 
+/* ---------- Result ---------- */
 .predict__result {
-  position: sticky; 
-  top: 24px;
   min-height: 420px;
 }
 
@@ -327,10 +335,60 @@
 
 .tips li:last-child { border-bottom: 0; }
 .tips span { opacity: 0.7; }
+.tips { margin-bottom: 26px; }
 
+/* fertilizer + disease lists */
+.result__list {
+  display: grid;
+  gap: 10px;
+  margin-bottom: 26px;
+}
+
+.result__list li {
+  padding: 12px 14px;
+  border-radius: 10px;
+  background: rgba(0, 0, 0, 0.22);
+  border-left: 3px solid #67b348;
+}
+
+.result__list strong {
+  display: block;
+  margin-bottom: 3px;
+  font-size: 14px;
+}
+
+.result__list span {
+  font-size: 13px;
+  line-height: 1.5;
+  opacity: 0.75;
+}
+
+.result__note {
+  margin: 0;
+  font-size: 12px;
+  line-height: 1.5;
+  opacity: 0.6;
+}
+
+/* ---------- Fertilizer + disease (below the form) ---------- */
+.predict__body--tight { padding-bottom: 28px; }
+
+.predict__extra {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  gap: 20px;
+  max-width: var(--container);
+  margin: 0 auto;
+  padding: 0 var(--gutter-hero) 90px;
+}
+
+.predict__extra .card h2 { margin-bottom: 20px; }
+.predict__extra .result__list { margin-bottom: 0; }
+
+/* ---------- Responsive ---------- */
 @media (max-width: 980px) {
   .predict__body { grid-template-columns: 1fr; }
-  .predict__result { position: static; }
 }
 
 @media (max-width: 600px) {

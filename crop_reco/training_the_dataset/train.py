@@ -2,7 +2,7 @@ import pandas as pd
 import numpy as np
 import matplotlib.pyplot as plt
 
-crop_reco = pd.read_csv('training_the_dataset/Crop_recommendation.csv')
+crop_reco = pd.read_csv('Crop_recommendation.csv')
 print(crop_reco)
 
 # Get basic information about the columns and data types
@@ -124,7 +124,7 @@ print(f"Individual Fold Accuracies: {cv_scores}")
 print(f"Mean Accuracy: {cv_scores.mean() * 100:.2f}%")
 print(f"Standard Deviation: {cv_scores.std() * 100:.2f}%")
 
-import joblibG
+import joblib
 
 # Save the trained model for your web application
 joblib.dump(clf, 'crop_decision_model.pkl')

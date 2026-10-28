@@ -1,6 +1,7 @@
 import { useState } from "react";
 import "../style/Predict.css";
 
+// label, unit, range and a short hint for each input
 const FIELDS = [
   { key: "N", label: "Nitrogen (N)", unit: "kg/ha", min: 0, max: 140, step: 1, hint: "Nitrogen content in the soil. Typical: 0–140." },
   { key: "P", label: "Phosphorus (P)", unit: "kg/ha", min: 5, max: 145, step: 1, hint: "Phosphorus content in the soil. Typical: 5–145." },
@@ -16,7 +17,7 @@ const SAMPLE = { N: 90, P: 42, K: 43, ph: 6.5, temperature: 21, humidity: 82, ra
 
 export default function Predict() {
   const [values, setValues] = useState(DEFAULTS);
-  const [status, setStatus] = useState("idle");
+  const [status, setStatus] = useState("idle"); // idle | loading | done | error
   const [result, setResult] = useState(null);
 
   const update = (key, val) => setValues((v) => ({ ...v, [key]: val }));
@@ -24,7 +25,7 @@ export default function Predict() {
   const handleSubmit = (e) => {
     e.preventDefault();
     setStatus("loading");
-
+    
     setTimeout(() => {
       setResult({
         crop: "Rice",
@@ -35,6 +36,11 @@ export default function Predict() {
           { label: "Season", value: "Wet season" },
           { label: "Water need", value: "High" },
           { label: "Ideal pH", value: "5.5 – 7.0" },
+        ],
+        fertilizers: [
+          { name: "Complete fertilizer (14-14-14)", use: "Before or at planting, as the base feed." },
+          { name: "Urea (nitrogen)", use: "Split into 2–3 applications during growth." },
+          { name: "Muriate of potash (potassium)", use: "At the tillering stage, for stronger stems." },
         ],
       });
       setStatus("done");
@@ -68,10 +74,13 @@ export default function Predict() {
         </div>
       </section>
 
-      <section className="predict__body">
+      <section className={`predict__body${status === "done" && result ? " predict__body--tight" : ""}`}>
         <form className="card predict__form" onSubmit={handleSubmit}>
           <div className="card__head">
             <h2>Your farm details</h2>
+            <button type="button" className="link-btn" onClick={() => setValues(SAMPLE)}>
+              Use sample data
+            </button>
           </div>
 
           <div className="predict__fields">
@@ -179,6 +188,27 @@ export default function Predict() {
           )}
         </aside>
       </section>
+
+      {status === "done" && result && (
+        <section className="predict__extra">
+          <div className="card">
+            <h2>Commonly used fertilizers</h2>
+            <ul className="result__list result__list--green">
+              {result.fertilizers.map((f) => (
+                <li key={f.name}>
+                  <strong>{f.name}</strong>
+                  <span>{f.use}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          <p className="result__note">
+            Based on dataset records. Actual needs depend on your soil test and field size.
+            Please confirm with your local agriculture office before applying.
+          </p>
+        </section>
+      )}
     </div>
   );
 }
