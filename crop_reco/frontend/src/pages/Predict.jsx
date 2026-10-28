@@ -21,24 +21,42 @@ export default function Predict() {
 
   const update = (key, val) => setValues((v) => ({ ...v, [key]: val }));
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     setStatus("loading");
+    setResult(null);
 
-    setTimeout(() => {
-      setResult({
-        crop: "Rice",
-        confidence: 92,
-        reason: "Your high humidity, heavy rainfall and nitrogen level suit rice well.",
-        alternatives: ["Jute", "Coconut", "Papaya"],
-        tips: [
-          { label: "Season", value: "Wet season" },
-          { label: "Water need", value: "High" },
-          { label: "Ideal pH", value: "5.5 – 7.0" },
-        ],
+    try {
+      const response = await fetch('http://localhost:5000/predict', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(values),
       });
-      setStatus("done");
-    }, 1200);
+
+      const data = await response.json();
+
+      if (response.ok) {
+        setResult({
+          crop: data.recommended_crop,
+          confidence: data.confidence, // Live confidence from Flask backend
+          reason: `Based on your soil nutrients and climate conditions, ${data.recommended_crop} is the optimal choice for your land.`,
+          alternatives: ["Maize", "Rice", "Chickpea"],
+          tips: [
+            { label: "Optimal pH", value: "6.0 - 7.0" },
+            { label: "Watering", value: "Moderate" }
+          ]
+        });
+        setStatus("done");
+      } else {
+        setStatus("error");
+        console.error("Prediction error:", data.error);
+      }
+    } catch (error) {
+      setStatus("error");
+      console.error("Failed to connect to backend:", error);
+    }
   };
 
   const handleReset = () => {
@@ -138,7 +156,7 @@ export default function Predict() {
             <div className="result__empty">
               <div className="result__icon">⚠️</div>
               <h2>Something went wrong</h2>
-              <p>We couldn't reach the server. Please try again.</p>
+              <p>We couldn't reach the server. Please check if app.py is running.</p>
             </div>
           )}
 
