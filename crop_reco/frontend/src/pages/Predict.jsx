@@ -37,6 +37,11 @@ export default function Predict() {
           { label: "Water need", value: "High" },
           { label: "Ideal pH", value: "5.5 – 7.0" },
         ],
+        fertilizers: [
+          { name: "Complete fertilizer (14-14-14)", use: "Before or at planting, as the base feed." },
+          { name: "Urea (nitrogen)", use: "Split into 2–3 applications during growth." },
+          { name: "Muriate of potash (potassium)", use: "At the tillering stage, for stronger stems." },
+        ],
       });
       setStatus("done");
     }, 1200);
@@ -184,7 +189,7 @@ export default function Predict() {
         </aside>
       </section>
 
-      {status === "done" && result && (
+      {status === "done" && result?.fertilizers?.length > 0 && (
         <section className="predict__extra">
           <div className="card">
             <h2>Commonly used fertilizers</h2>
