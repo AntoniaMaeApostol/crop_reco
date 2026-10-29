@@ -22,10 +22,10 @@ export default function Predict() {
 
   const update = (key, val) => setValues((v) => ({ ...v, [key]: val }));
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     setStatus("loading");
-    
+
     setTimeout(() => {
       setResult({
         crop: "Rice",
@@ -36,11 +36,6 @@ export default function Predict() {
           { label: "Season", value: "Wet season" },
           { label: "Water need", value: "High" },
           { label: "Ideal pH", value: "5.5 – 7.0" },
-        ],
-        fertilizers: [
-          { name: "Complete fertilizer (14-14-14)", use: "Before or at planting, as the base feed." },
-          { name: "Urea (nitrogen)", use: "Split into 2–3 applications during growth." },
-          { name: "Muriate of potash (potassium)", use: "At the tillering stage, for stronger stems." },
         ],
       });
       setStatus("done");
@@ -147,7 +142,7 @@ export default function Predict() {
             <div className="result__empty">
               <div className="result__icon">⚠️</div>
               <h2>Something went wrong</h2>
-              <p>We couldn't reach the server. Please try again.</p>
+              <p>We couldn't reach the server. Please check if app.py is running.</p>
             </div>
           )}
 
