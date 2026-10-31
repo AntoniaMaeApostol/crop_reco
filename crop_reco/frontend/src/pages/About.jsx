@@ -22,7 +22,7 @@ const CROPS = [
 
 const TEAM = [
   { name: "Antonia Mae G. Apostol", role: "Designer" },
-  { name: "Irene Jade V. Chatto", role: "Frontend & Model Developer" },
+  { name: "Irene Jade V. Chatto", role: "Back-end & Model Developer" },
   { name: "Leanna Faye J. Ensomo", role: "Fertilizer Data Specialist" },
 ];
 
