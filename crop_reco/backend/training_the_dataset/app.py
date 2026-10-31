@@ -8,6 +8,14 @@ CORS(app)
 
 model = joblib.load('crop_decision_model.pkl')
 
+# Official crop labels corresponding to the model's numeric outputs (0 to 21)
+crop_classes = [
+    'rice', 'maize', 'chickpea', 'kidneybeans', 'pigeonpeas', 
+    'mothbeans', 'mungbean', 'blackgram', 'lentil', 'pomegranate', 
+    'banana', 'mango', 'grapes', 'watermelon', 'muskmelon', 
+    'apple', 'orange', 'papaya', 'coconut', 'cotton', 'jute', 'coffee'
+]
+
 @app.route('/predict', methods=['POST'])
 def predict():
     data = request.get_json()
@@ -17,8 +25,14 @@ def predict():
         float(data['ph']), float(data['rainfall'])
     ]
     
-    # Convert prediction to standard string so JSON serialization never fails
-    prediction = str(model.predict([features])[0])
+    # Get the predicted class index from the model
+    pred_index = int(model.predict([features])[0])
+    
+    # Map the index to the actual crop name string safely
+    if 0 <= pred_index < len(crop_classes):
+        prediction = crop_classes[pred_index]
+    else:
+        prediction = str(pred_index)
     
     try:
         probabilities = model.predict_proba([features])
@@ -30,5 +44,6 @@ def predict():
         'recommended_crop': prediction,
         'confidence': confidence
     })
+
 if __name__ == '__main__':
     app.run(debug=True, port=5000)
