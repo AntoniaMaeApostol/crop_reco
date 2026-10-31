@@ -22,8 +22,8 @@ const CROPS = [
 
 const TEAM = [
   { name: "Antonia Mae G. Apostol", role: "Designer" },
-  { name: "Irene Jade V. Chatto", role: "me dont know" },
-  { name: "Leana Faye J. Ensomo", role: "functions?" },
+  { name: "Irene Jade V. Chatto", role: "Frontend & Model Developer" },
+  { name: "Leanna Faye J. Ensomo", role: "Fertilizer Data Specialist" },
 ];
 
 export default function About() {

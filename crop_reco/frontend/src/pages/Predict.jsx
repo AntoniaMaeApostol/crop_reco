@@ -26,15 +26,31 @@ export default function Predict() {
     e.preventDefault();
     setStatus("loading");
 
-    setTimeout(() => {
+    try {
+      // Send the current slider values to your Flask backend
+      const response = await fetch("http://localhost:5000/predict", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(values),
+      });
+
+      if (!response.ok) {
+        throw new Error("Server response was not ok");
+      }
+
+      const data = await response.json();
+
+      // Map the real data coming from your Python Flask backend
       setResult({
-        crop: "Rice",
-        confidence: 92,
-        reason: "Your high humidity, heavy rainfall and nitrogen level suit rice well.",
+        crop: data.recommended_crop,
+        confidence: data.confidence,
+        reason: `Your entered soil and climate parameters point to ${data.recommended_crop} as the optimal crop choice.`,
         alternatives: ["Jute", "Coconut", "Papaya"],
         tips: [
-          { label: "Season", value: "Wet season" },
-          { label: "Water need", value: "High" },
+          { label: "Season", value: "Optimal season" },
+          { label: "Water need", value: values.rainfall > 150 ? "High" : "Moderate" },
           { label: "Ideal pH", value: "5.5 – 7.0" },
         ],
         fertilizers: [
@@ -44,7 +60,10 @@ export default function Predict() {
         ],
       });
       setStatus("done");
-    }, 1200);
+    } catch (error) {
+      console.error("Prediction error:", error);
+      setStatus("error");
+    }
   };
 
   const handleReset = () => {
