@@ -18,9 +18,16 @@
   line-height: 1;
 }
 
-.about__stats span { font-size: 15px; opacity: 0.85; }
+.about__stats span {
+  font-size: 15px;
+  opacity: 0.85;
+}
 
-.about__chips { display: flex; flex-wrap: wrap; gap: 10px; }
+.about__chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
 
 .about__chip {
   padding: 8px 18px;
@@ -39,5 +46,8 @@
 }
 
 @media (max-width: 600px) {
-  .about__stats { grid-template-columns: 1fr; padding: 24px; }
+  .about__stats {
+    grid-template-columns: 1fr;
+    padding: 24px;
+  }
 }

@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import "../style/Home.css";
- 
+
 export default function Home() {
   return (
     <section className="hero">
@@ -27,7 +27,9 @@ export default function Home() {
           Enter your soil, climate and rainfall details and SIBOL predicts the
           most suitable crop for your farm.
         </p>
-        <Link to="/predict" className="hero__cta">Predict Crop</Link>
+        <Link to="/predict" className="hero__cta">
+          Predict Crop
+        </Link>
       </div>
     </section>
   );

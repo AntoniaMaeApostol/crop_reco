@@ -3,9 +3,18 @@ import "../style/Page.css";
 import "../style/About.css";
 
 const STEPS = [
-  { title: "Enter your data", text: "Provide your soil nutrients, pH, temperature, humidity and rainfall." },
-  { title: "SIBOL analyzes it", text: "A machine learning model compares your land against patterns learned from real crop data." },
-  { title: "Get your crop", text: "Receive the most suitable crop for your farm, plus other good options." },
+  {
+    title: "Enter your data",
+    text: "Provide your soil nutrients, pH, temperature, humidity and rainfall.",
+  },
+  {
+    title: "SIBOL analyzes it",
+    text: "A machine learning model compares your land against patterns learned from real crop data.",
+  },
+  {
+    title: "Get your crop",
+    text: "Receive the most suitable crop for your farm, plus other good options.",
+  },
 ];
 
 const STATS = [
@@ -15,9 +24,28 @@ const STATS = [
 ];
 
 const CROPS = [
-  "Rice", "Maize", "Chickpea", "Kidney beans", "Pigeon peas", "Moth beans", "Mung bean", "Black gram",
-  "Lentil", "Pomegranate", "Banana", "Mango", "Grapes", "Watermelon", "Muskmelon", "Apple",
-  "Orange", "Papaya", "Coconut", "Cotton", "Jute", "Coffee",
+  "Rice",
+  "Maize",
+  "Chickpea",
+  "Kidney beans",
+  "Pigeon peas",
+  "Moth beans",
+  "Mung bean",
+  "Black gram",
+  "Lentil",
+  "Pomegranate",
+  "Banana",
+  "Mango",
+  "Grapes",
+  "Watermelon",
+  "Muskmelon",
+  "Apple",
+  "Orange",
+  "Papaya",
+  "Coconut",
+  "Cotton",
+  "Jute",
+  "Coffee",
 ];
 
 const TEAM = [
@@ -44,15 +72,19 @@ export default function About() {
       <header className="page__hero">
         <span className="page__eyebrow">About SIBOL</span>
         <h1>Helping Farmers Grow Smarter</h1>
-        <p>SIBOL turns your soil and climate data into a clear crop recommendation.</p>
+        <p>
+          SIBOL turns your soil and climate data into a clear crop
+          recommendation.
+        </p>
       </header>
 
       <section className="page__section">
         <h2>Our mission</h2>
         <p className="page__lead">
-          Choosing the wrong crop can cost a farmer a whole season. SIBOL was built to make that
-          decision easier by matching your land's conditions with the crops most likely to thrive,
-          so every planting starts with better information.
+          Choosing the wrong crop can cost a farmer a whole season. SIBOL was
+          built to make that decision easier by matching your land's conditions
+          with the crops most likely to thrive, so every planting starts with
+          better information.
         </p>
       </section>
 
@@ -84,7 +116,9 @@ export default function About() {
         <h2>Supported crops</h2>
         <div className="about__chips">
           {CROPS.map((c) => (
-            <span className="about__chip" key={c}>{c}</span>
+            <span className="about__chip" key={c}>
+              {c}
+            </span>
           ))}
         </div>
       </section>
@@ -100,8 +134,8 @@ export default function About() {
           ))}
         </div>
         <p className="about__note">
-          Recommendations are a guide, not a guarantee. Please confirm with your local agricultural
-          office before making major planting decisions.
+          Recommendations are a guide, not a guarantee. Please confirm with your
+          local agricultural office before making major planting decisions.
         </p>
       </section>
 
@@ -111,7 +145,9 @@ export default function About() {
             <h2>Ready to find your crop?</h2>
             <p>It only takes a minute.</p>
           </div>
-          <Link to="/predict" className="btn-pill">Predict Crop</Link>
+          <Link to="/predict" className="btn-pill">
+            Predict Crop
+          </Link>
         </div>
       </section>
     </div>

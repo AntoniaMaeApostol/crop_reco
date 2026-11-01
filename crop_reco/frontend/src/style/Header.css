@@ -7,12 +7,16 @@
   background: var(--teal);
   text-align: center;
 }
- 
+
 .header p {
   margin: 0;
   font-size: 15px;
   font-weight: 400;
 }
- 
-.header a { text-decoration: underline; }
-.header a:hover { text-decoration-thickness: 2px; }
+
+.header a {
+  text-decoration: underline;
+}
+.header a:hover {
+  text-decoration-thickness: 2px;
+}

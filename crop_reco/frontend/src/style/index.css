@@ -11,11 +11,19 @@
   --font-body: "Inter", system-ui, sans-serif;
   --font-display: "Oswald", "Arial Narrow", sans-serif;
 }
- 
-*, *::before, *::after { box-sizing: border-box; }
- 
-html, body, #root { min-height: 100%; }
- 
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html,
+body,
+#root {
+  min-height: 100%;
+}
+
 body {
   margin: 0;
   font-family: var(--font-body);
@@ -23,9 +31,21 @@ body {
   background: var(--teal);
   -webkit-font-smoothing: antialiased;
 }
- 
-a { color: inherit; }
-img { max-width: 100%; display: block; }
-ul { list-style: none; margin: 0; padding: 0; }
- 
-:focus-visible { outline: 2px solid #f6cf4b; outline-offset: 3px; }
+
+a {
+  color: inherit;
+}
+img {
+  max-width: 100%;
+  display: block;
+}
+ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+:focus-visible {
+  outline: 2px solid #f6cf4b;
+  outline-offset: 3px;
+}

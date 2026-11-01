@@ -3,20 +3,60 @@ import "../style/Page.css";
 import "../style/Guide.css";
 
 const STEPS = [
-  { title: "Collect your data", text: "Get your soil test results and your area's average weather." },
-  { title: "Enter your values", text: "Fill in each field on the Predict page, using the sliders or the number boxes." },
-  { title: "Read the result", text: "See your best crop, how confident SIBOL is, and other good options." },
-  { title: "Plan your planting", text: "Use the growing tips, then confirm with your local agriculture office." },
+  {
+    title: "Collect your data",
+    text: "Get your soil test results and your area's average weather.",
+  },
+  {
+    title: "Enter your values",
+    text: "Fill in each field on the Predict page, using the sliders or the number boxes.",
+  },
+  {
+    title: "Read the result",
+    text: "See your best crop, how confident SIBOL is, and other good options.",
+  },
+  {
+    title: "Plan your planting",
+    text: "Use the growing tips, then confirm with your local agriculture office.",
+  },
 ];
 
 const INPUTS = [
-  { name: "Nitrogen (N)", range: "0 – 140 kg/ha", text: "Helps leaves grow. Found in a soil test." },
-  { name: "Phosphorus (P)", range: "5 – 145 kg/ha", text: "Supports roots and flowering. Found in a soil test." },
-  { name: "Potassium (K)", range: "5 – 205 kg/ha", text: "Improves overall plant health. Found in a soil test." },
-  { name: "Soil pH", range: "3.5 – 9.9", text: "How acidic or alkaline the soil is. 7 is neutral." },
-  { name: "Temperature", range: "8 – 44 °C", text: "Average temperature of your area." },
-  { name: "Humidity", range: "14 – 100 %", text: "Average moisture in the air." },
-  { name: "Rainfall", range: "20 – 300 mm", text: "Average rainfall per month." },
+  {
+    name: "Nitrogen (N)",
+    range: "0 – 140 kg/ha",
+    text: "Helps leaves grow. Found in a soil test.",
+  },
+  {
+    name: "Phosphorus (P)",
+    range: "5 – 145 kg/ha",
+    text: "Supports roots and flowering. Found in a soil test.",
+  },
+  {
+    name: "Potassium (K)",
+    range: "5 – 205 kg/ha",
+    text: "Improves overall plant health. Found in a soil test.",
+  },
+  {
+    name: "Soil pH",
+    range: "3.5 – 9.9",
+    text: "How acidic or alkaline the soil is. 7 is neutral.",
+  },
+  {
+    name: "Temperature",
+    range: "8 – 44 °C",
+    text: "Average temperature of your area.",
+  },
+  {
+    name: "Humidity",
+    range: "14 – 100 %",
+    text: "Average moisture in the air.",
+  },
+  {
+    name: "Rainfall",
+    range: "20 – 300 mm",
+    text: "Average rainfall per month.",
+  },
 ];
 
 const TIPS = [
@@ -27,10 +67,22 @@ const TIPS = [
 ];
 
 const FAQ = [
-  { q: "I don't know my NPK values. What can I do?", a: "Ask your local agriculture office for a soil test, or use a home soil test kit. Until then you can try the sample data to see how the app works." },
-  { q: "How accurate is the recommendation?", a: "SIBOL gives a confidence score with every result. It is a helpful guide, but real conditions on your farm can differ." },
-  { q: "Which crops does SIBOL support?", a: "It supports 22 crops, including rice, maize, banana, mango, coconut and coffee. See the full list on the About page." },
-  { q: "Where do I find my area's weather data?", a: "Your local weather bureau or agriculture office publishes monthly averages for temperature, humidity and rainfall." },
+  {
+    q: "I don't know my NPK values. What can I do?",
+    a: "Ask your local agriculture office for a soil test, or use a home soil test kit. Until then you can try the sample data to see how the app works.",
+  },
+  {
+    q: "How accurate is the recommendation?",
+    a: "SIBOL gives a confidence score with every result. It is a helpful guide, but real conditions on your farm can differ.",
+  },
+  {
+    q: "Which crops does SIBOL support?",
+    a: "It supports 22 crops, including rice, maize, banana, mango, coconut and coffee. See the full list on the About page.",
+  },
+  {
+    q: "Where do I find my area's weather data?",
+    a: "Your local weather bureau or agriculture office publishes monthly averages for temperature, humidity and rainfall.",
+  },
 ];
 
 export default function Guide() {
@@ -107,7 +159,9 @@ export default function Guide() {
             <h2>Ready to try it?</h2>
             <p>Have your numbers handy and get your result in seconds.</p>
           </div>
-          <Link to="/predict" className="btn-pill">Predict Crop</Link>
+          <Link to="/predict" className="btn-pill">
+            Predict Crop
+          </Link>
         </div>
       </section>
     </div>

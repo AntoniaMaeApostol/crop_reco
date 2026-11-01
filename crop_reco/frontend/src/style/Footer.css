@@ -2,13 +2,13 @@
   min-height: 94px;
   background: var(--teal);
 }
- 
+
 .footer__inner {
   max-width: var(--container);
   margin: 0 auto;
   padding: 32px var(--gutter);
 }
- 
+
 .footer p {
   margin: 0;
   font-size: 13px;

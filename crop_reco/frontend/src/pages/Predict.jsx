@@ -2,17 +2,89 @@ import { useState } from "react";
 import "../style/Predict.css";
 
 const FIELDS = [
-  { key: "N", label: "Nitrogen (N)", unit: "kg/ha", min: 0, max: 140, step: 1, hint: "Nitrogen content in the soil. Typical: 0–140." },
-  { key: "P", label: "Phosphorus (P)", unit: "kg/ha", min: 5, max: 145, step: 1, hint: "Phosphorus content in the soil. Typical: 5–145." },
-  { key: "K", label: "Potassium (K)", unit: "kg/ha", min: 5, max: 205, step: 1, hint: "Potassium content in the soil. Typical: 5–205." },
-  { key: "ph", label: "Soil pH", unit: "pH", min: 3, max: 10, step: 0.1, hint: "Soil acidity. 7 is neutral. Typical: 3.5–9.9." },
-  { key: "temperature", label: "Temperature", unit: "°C", min: 8, max: 44, step: 0.5, hint: "Average temperature of your area." },
-  { key: "humidity", label: "Humidity", unit: "%", min: 14, max: 100, step: 1, hint: "Average relative humidity." },
-  { key: "rainfall", label: "Rainfall", unit: "mm", min: 20, max: 300, step: 1, hint: "Average rainfall per month." },
+  {
+    key: "N",
+    label: "Nitrogen (N)",
+    unit: "kg/ha",
+    min: 0,
+    max: 140,
+    step: 1,
+    hint: "Nitrogen content in the soil. Typical: 0–140.",
+  },
+  {
+    key: "P",
+    label: "Phosphorus (P)",
+    unit: "kg/ha",
+    min: 5,
+    max: 145,
+    step: 1,
+    hint: "Phosphorus content in the soil. Typical: 5–145.",
+  },
+  {
+    key: "K",
+    label: "Potassium (K)",
+    unit: "kg/ha",
+    min: 5,
+    max: 205,
+    step: 1,
+    hint: "Potassium content in the soil. Typical: 5–205.",
+  },
+  {
+    key: "ph",
+    label: "Soil pH",
+    unit: "pH",
+    min: 3,
+    max: 10,
+    step: 0.1,
+    hint: "Soil acidity. 7 is neutral. Typical: 3.5–9.9.",
+  },
+  {
+    key: "temperature",
+    label: "Temperature",
+    unit: "°C",
+    min: 8,
+    max: 44,
+    step: 0.5,
+    hint: "Average temperature of your area.",
+  },
+  {
+    key: "humidity",
+    label: "Humidity",
+    unit: "%",
+    min: 14,
+    max: 100,
+    step: 1,
+    hint: "Average relative humidity.",
+  },
+  {
+    key: "rainfall",
+    label: "Rainfall",
+    unit: "mm",
+    min: 20,
+    max: 300,
+    step: 1,
+    hint: "Average rainfall per month.",
+  },
 ];
 
-const DEFAULTS = { N: 50, P: 50, K: 50, ph: 6.5, temperature: 25, humidity: 70, rainfall: 100 };
-const SAMPLE = { N: 90, P: 42, K: 43, ph: 6.5, temperature: 21, humidity: 82, rainfall: 203 };
+const DEFAULTS = {
+  N: 50,
+  P: 50,
+  K: 50,
+  ph: 6.5,
+  temperature: 25,
+  humidity: 70,
+  rainfall: 100,
+};
+const SAMPLE = {
+  N: 90,
+  P: 42,
+  K: 43,
+  ph: 6.5,
+  temperature: 21,
+  humidity: 82,
+  rainfall: 203,
+};
 
 export default function Predict() {
   const [values, setValues] = useState(DEFAULTS);
@@ -78,15 +150,24 @@ export default function Predict() {
         <div className="predict__hero-inner">
           <span className="predict__eyebrow">Crop Prediction</span>
           <h1>Tell Us About Your Land</h1>
-          <p>Fill in your soil and climate details and SIBOL will suggest the crop that fits best.</p>
+          <p>
+            Fill in your soil and climate details and SIBOL will suggest the
+            crop that fits best.
+          </p>
         </div>
       </section>
 
-      <section className={`predict__body${status === "done" && result ? " predict__body--tight" : ""}`}>
+      <section
+        className={`predict__body${status === "done" && result ? " predict__body--tight" : ""}`}
+      >
         <form className="card predict__form" onSubmit={handleSubmit}>
           <div className="card__head">
             <h2>Your farm details</h2>
-            <button type="button" className="link-btn" onClick={() => setValues(SAMPLE)}>
+            <button
+              type="button"
+              className="link-btn"
+              onClick={() => setValues(SAMPLE)}
+            >
               Use sample data
             </button>
           </div>
@@ -126,7 +207,11 @@ export default function Predict() {
           </div>
 
           <div className="predict__actions">
-            <button type="submit" className="btn-pill" disabled={status === "loading"}>
+            <button
+              type="submit"
+              className="btn-pill"
+              disabled={status === "loading"}
+            >
               {status === "loading" ? "Predicting..." : "Predict Crop"}
             </button>
             <button type="button" className="link-btn" onClick={handleReset}>
@@ -140,7 +225,10 @@ export default function Predict() {
             <div className="result__empty">
               <div className="result__icon">🌱</div>
               <h2>Your recommendation</h2>
-              <p>Your recommended crop will appear here after you submit your details.</p>
+              <p>
+                Your recommended crop will appear here after you submit your
+                details.
+              </p>
             </div>
           )}
 
@@ -155,7 +243,9 @@ export default function Predict() {
             <div className="result__empty">
               <div className="result__icon">⚠️</div>
               <h2>Something went wrong</h2>
-              <p>We couldn't reach the server. Please check if app.py is running.</p>
+              <p>
+                We couldn't reach the server. Please check if app.py is running.
+              </p>
             </div>
           )}
 
@@ -179,7 +269,9 @@ export default function Predict() {
               <h3>Other good options</h3>
               <div className="chips">
                 {result.alternatives.map((c) => (
-                  <span className="chip" key={c}>{c}</span>
+                  <span className="chip" key={c}>
+                    {c}
+                  </span>
                 ))}
               </div>
 
@@ -212,8 +304,9 @@ export default function Predict() {
           </div>
 
           <p className="result__note">
-            Based on dataset records. Actual needs depend on your soil test and field size.
-            Please confirm with your local agriculture office before applying.
+            Based on dataset records. Actual needs depend on your soil test and
+            field size. Please confirm with your local agriculture office before
+            applying.
           </p>
         </section>
       )}
