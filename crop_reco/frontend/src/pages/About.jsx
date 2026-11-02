@@ -12,7 +12,7 @@ const STEPS = [
     text: "SIBOL finds the crop that best matches your land.",
   },
   {
-    title: "Get your crop",
+    title: "Get your results",
     text: "Receive the most suitable crop for your land.",
   },
 ];
@@ -67,8 +67,7 @@ export default function About() {
         <span className="page__eyebrow">About</span>
         <h1>Meet SIBOL</h1>
         <p>
-          SIBOL is a crop recommendation tool for farmers, home gardeners and
-          anyone starting to grow.
+          We help you decide what to plant by turning your soil and climate details into a clear recommendation.
         </p>
       </header>
 

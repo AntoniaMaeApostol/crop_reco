@@ -437,3 +437,12 @@
     padding: 22px;
   }
 }
+
+.predict__note {
+  grid-column: 1 / -1;
+  width: 100%;
+  margin: 0;
+  font-size: 13px;
+  line-height: 1.5;
+  opacity: 0.65;
+}

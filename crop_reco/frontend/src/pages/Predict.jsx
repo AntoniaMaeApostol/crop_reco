@@ -160,7 +160,7 @@ export default function Predict() {
       <section className="predict__body">
         <form className="card predict__form" onSubmit={handleSubmit}>
           <div className="card__head">
-            <h2>Your farm details</h2>
+            <h2>Your Land Details</h2>
           </div>
 
           <div className="predict__fields">
@@ -292,13 +292,12 @@ export default function Predict() {
             </div>
           )}
         </aside>
-
-        {status === "done" && result?.fertilizers?.length > 0 && (
           <p className="predict__note">
-            Suggested from dataset records. Actual needs depend on your soil and
-            the size of your area. For large areas, a soil test is recommended.
+            Crop recommendations are intended as a guide and do not guarantee
+            successful growth or yield. Actual results may vary depending on
+            environmental conditions, farming practices, and proper crop
+            management.
           </p>
-        )}
       </section>
     </div>
   );
