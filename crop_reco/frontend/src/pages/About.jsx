@@ -9,18 +9,18 @@ const STEPS = [
   },
   {
     title: "SIBOL analyzes it",
-    text: "A machine learning model compares your land against patterns learned from real crop data.",
+    text: "SIBOL finds the crop that best matches your land.",
   },
   {
     title: "Get your crop",
-    text: "Receive the most suitable crop for your farm, plus other good options.",
+    text: "Receive the most suitable crop for your land.",
   },
 ];
 
 const STATS = [
   { value: "22", label: "Crops supported" },
   { value: "7", label: "Input factors" },
-  { value: "<5s", label: "To get a result" },
+  { value: "10", label: "Fertilizer types" },
 ];
 
 const CROPS = [
@@ -48,12 +48,6 @@ const CROPS = [
   "Coffee",
 ];
 
-const TEAM = [
-  { name: "Antonia Mae G. Apostol", role: "Designer" },
-  { name: "Irene Jade V. Chatto", role: "Back-end & Model Developer" },
-  { name: "Leanna Faye J. Ensomo", role: "Fertilizer Data Specialist" },
-];
-
 export default function About() {
   return (
     <div className="page">
@@ -70,21 +64,22 @@ export default function About() {
       <div className="page__overlay" />
 
       <header className="page__hero">
-        <span className="page__eyebrow">About SIBOL</span>
-        <h1>Helping Farmers Grow Smarter</h1>
+        <span className="page__eyebrow">About</span>
+        <h1>Meet SIBOL</h1>
         <p>
-          SIBOL turns your soil and climate data into a clear crop
-          recommendation.
+          SIBOL is a crop recommendation tool for farmers, home gardeners and
+          anyone starting to grow.
         </p>
       </header>
 
       <section className="page__section">
         <h2>Our mission</h2>
         <p className="page__lead">
-          Choosing the wrong crop can cost a farmer a whole season. SIBOL was
-          built to make that decision easier by matching your land's conditions
-          with the crops most likely to thrive, so every planting starts with
-          better information.
+          Picking the wrong crop can cost time, money and effort. SIBOL helps
+          you decide what to plant by matching your soil and climate conditions
+          to the crops most likely to do well. It’s made especially for farmers,
+          and it works just as well for anyone starting a home garden or
+          planning a farming business.
         </p>
       </section>
 
@@ -121,21 +116,10 @@ export default function About() {
             </span>
           ))}
         </div>
-      </section>
-
-      <section className="page__section">
-        <h2>The team</h2>
-        <div className="page-grid page-grid--3">
-          {TEAM.map((m, i) => (
-            <div className="page-card" key={i}>
-              <h3>{m.name}</h3>
-              <p>{m.role}</p>
-            </div>
-          ))}
-        </div>
         <p className="about__note">
           Recommendations are a guide, not a guarantee. Please confirm with your
-          local agricultural office before making major planting decisions.
+          local agriculture office before making major planting or business
+          decisions.
         </p>
       </section>
 

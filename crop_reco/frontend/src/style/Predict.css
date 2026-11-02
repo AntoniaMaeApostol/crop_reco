@@ -13,7 +13,6 @@
   z-index: 0;
 }
 
-/* dark layer so the form and text stay readable */
 .predict__overlay {
   position: absolute;
   inset: 0;
@@ -31,16 +30,14 @@
   }
 }
 
-/* keep content above the video */
 .predict__hero,
 .predict__body {
   position: relative;
   z-index: 1;
 }
 
-/* ---------- Hero ---------- */
 .predict__hero {
-  padding: 170px 0 48px; /* top space clears the navbar */
+  padding: 170px 0 48px;
 }
 
 .predict__hero-inner,
@@ -79,12 +76,11 @@
   opacity: 0.9;
 }
 
-/* ---------- Layout ---------- */
 .predict__body {
   display: grid;
   grid-template-columns: minmax(0, 1.25fr) minmax(0, 1fr);
   gap: 28px;
-  align-items: start;
+    align-items: stretch;
   padding-bottom: 90px;
 }
 
@@ -110,7 +106,6 @@
   margin-bottom: 26px;
 }
 
-/* ---------- Form ---------- */
 .predict__fields {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -149,7 +144,6 @@
   text-align: right;
 }
 
-/* hide the up/down arrows on number inputs */
 .field__value input[type="number"] {
   appearance: textfield;
   -moz-appearance: textfield;
@@ -173,8 +167,6 @@
   line-height: 1.4;
   opacity: 0.65;
 }
-
-/* slider */
 .field__slider {
   width: 100%;
   height: 6px;
@@ -201,7 +193,6 @@
   border: 2px solid var(--forest-dark);
 }
 
-/* buttons */
 .predict__actions {
   display: flex;
   align-items: center;
@@ -240,17 +231,16 @@
   color: var(--white);
   font: inherit;
   font-size: 14px;
-  text-decoration: underline;
+  text-decoration: none;
   cursor: pointer;
   opacity: 0.85;
 }
 
 .link-btn:hover {
-  color: #f6cf4b;
+  color: #f03740;
   opacity: 1;
 }
 
-/* ---------- Result ---------- */
 .predict__result {
   min-height: 420px;
 }
@@ -366,7 +356,6 @@
   margin-bottom: 26px;
 }
 
-/* fertilizer + disease lists */
 .result__list {
   display: grid;
   gap: 10px;
@@ -399,7 +388,6 @@
   opacity: 0.6;
 }
 
-/* ---------- Fertilizer + disease (below the form) ---------- */
 .predict__body--tight {
   padding-bottom: 28px;
 }
@@ -421,7 +409,17 @@
   margin-bottom: 0;
 }
 
-/* ---------- Responsive ---------- */
+/* fertilizer item without the box */
+.result__content .result__list li {
+  padding: 0;
+  background: none;
+  border-left: 0;
+}
+
+.result__content .result__list {
+  margin-bottom: 0;
+}
+
 @media (max-width: 980px) {
   .predict__body {
     grid-template-columns: 1fr;

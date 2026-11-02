@@ -157,19 +157,10 @@ export default function Predict() {
         </div>
       </section>
 
-      <section
-        className={`predict__body${status === "done" && result ? " predict__body--tight" : ""}`}
-      >
+      <section className="predict__body">
         <form className="card predict__form" onSubmit={handleSubmit}>
           <div className="card__head">
             <h2>Your farm details</h2>
-            <button
-              type="button"
-              className="link-btn"
-              onClick={() => setValues(SAMPLE)}
-            >
-              Use sample data
-            </button>
           </div>
 
           <div className="predict__fields">
@@ -284,32 +275,31 @@ export default function Predict() {
                   </li>
                 ))}
               </ul>
+
+              {result.fertilizers.length > 0 && (
+                <>
+                  <h3>Suggested fertilizer</h3>
+                  <ul className="result__list result__list--green">
+                    {result.fertilizers.map((f) => (
+                      <li key={f.name}>
+                        <strong>{f.name}</strong>
+                        <span>{f.use}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </>
+              )}
             </div>
           )}
         </aside>
-      </section>
 
-      {status === "done" && result?.fertilizers?.length > 0 && (
-        <section className="predict__extra">
-          <div className="card">
-            <h2>Commonly used fertilizers</h2>
-            <ul className="result__list result__list--green">
-              {result.fertilizers.map((f) => (
-                <li key={f.name}>
-                  <strong>{f.name}</strong>
-                  <span>{f.use}</span>
-                </li>
-              ))}
-            </ul>
-          </div>
-
-          <p className="result__note">
-            Based on dataset records. Actual needs depend on your soil test and
-            field size. Please confirm with your local agriculture office before
-            applying.
+        {status === "done" && result?.fertilizers?.length > 0 && (
+          <p className="predict__note">
+            Suggested from dataset records. Actual needs depend on your soil and
+            the size of your area. For large areas, a soil test is recommended.
           </p>
-        </section>
-      )}
+        )}
+      </section>
     </div>
   );
 }

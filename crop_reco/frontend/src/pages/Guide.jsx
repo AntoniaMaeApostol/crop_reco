@@ -4,76 +4,74 @@ import "../style/Guide.css";
 
 const STEPS = [
   {
-    title: "Collect your data",
-    text: "Get your soil test results and your area's average weather.",
+    title: "Gather your details",
+    text: "Prepare your soil test results and your area's average weather.",
   },
   {
-    title: "Enter your values",
-    text: "Fill in each field on the Predict page, using the sliders or the number boxes.",
+    title: "Fill in the form",
+    text: "Enter your values on the Predict page using the sliders or number boxes.",
   },
   {
-    title: "Read the result",
-    text: "See your best crop, how confident SIBOL is, and other good options.",
+    title: "Get your result",
+    text: "See the recommended crop, SIBOL's confidence, and commonly used fertilizers.",
   },
   {
     title: "Plan your planting",
-    text: "Use the growing tips, then confirm with your local agriculture office.",
+    text: "Use the result as a starting point. For larger plantings, it helps to check with your local agriculture office.",
   },
 ];
 
 const INPUTS = [
   {
     name: "Nitrogen (N)",
-    range: "0 – 140 kg/ha",
-    text: "Helps leaves grow. Found in a soil test.",
+    text: "Helps leaves grow. Found in a soil test, measured in kg/ha.",
   },
   {
     name: "Phosphorus (P)",
-    range: "5 – 145 kg/ha",
-    text: "Supports roots and flowering. Found in a soil test.",
+    text: "Supports roots and flowering. Found in a soil test, measured in kg/ha.",
   },
   {
     name: "Potassium (K)",
-    range: "5 – 205 kg/ha",
-    text: "Improves overall plant health. Found in a soil test.",
+    text: "Improves overall plant health. Found in a soil test, measured in kg/ha.",
   },
   {
     name: "Soil pH",
-    range: "3.5 – 9.9",
     text: "How acidic or alkaline the soil is. 7 is neutral.",
   },
   {
     name: "Temperature",
-    range: "8 – 44 °C",
-    text: "Average temperature of your area.",
+    text: "Average temperature of your area, in °C.",
   },
   {
     name: "Humidity",
-    range: "14 – 100 %",
-    text: "Average moisture in the air.",
+    text: "Average moisture in the air, as a percentage.",
   },
   {
     name: "Rainfall",
-    range: "20 – 300 mm",
-    text: "Average rainfall per month.",
+    text: "Average rainfall per month, in mm.",
   },
 ];
 
 const TIPS = [
-  "Take soil samples from several spots in your field and mix them for a better average.",
-  "Test your soil before the planting season, not during it.",
-  "Use average weather over several months, not just today's weather.",
-  "Re-run SIBOL each season, because your soil and weather change.",
+  "Collect soil from several spots and mix it into one sample, so it represents your whole area. Skip fertilizer spills and compost piles.",
+  "Sample your soil before adding any lime, fertilizer or manure.",
+  "Test your soil before planting, not while a crop is growing, so you have time to act on the results. Don't sample soaking-wet soil.",
+  "Use long-term average weather for your area (a whole season or more), not just today's weather.",
+  "Retest every 2–3 years (every 1–2 years for vegetable gardens), around the same time of year.",
 ];
 
 const FAQ = [
+  {
+    q: "Is SIBOL only for farmers?",
+    a: "No. SIBOL is made especially for farmers, but anyone can use it, including people who want to try planting at home, start a mini garden, or plan a farming business.",
+  },
   {
     q: "I don't know my NPK values. What can I do?",
     a: "Ask your local agriculture office for a soil test, or use a home soil test kit. Until then you can try the sample data to see how the app works.",
   },
   {
     q: "How accurate is the recommendation?",
-    a: "SIBOL gives a confidence score with every result. It is a helpful guide, but real conditions on your farm can differ.",
+    a: "SIBOL gives a confidence score with every result. It is a helpful guide, but real conditions on your land can differ.",
   },
   {
     q: "Which crops does SIBOL support?",
@@ -103,7 +101,9 @@ export default function Guide() {
       <header className="page__hero">
         <span className="page__eyebrow">Guide</span>
         <h1>How To Use SIBOL</h1>
-        <p>Four simple steps from your soil data to your best crop.</p>
+        <p>
+          A quick walkthrough to help you get the most out of SIBOL.
+        </p>
       </header>
 
       <section className="page__section">
@@ -125,7 +125,6 @@ export default function Guide() {
           {INPUTS.map((i) => (
             <div className="page-card" key={i.name}>
               <h3>{i.name}</h3>
-              <span className="guide__range">{i.range}</span>
               <p>{i.text}</p>
             </div>
           ))}
