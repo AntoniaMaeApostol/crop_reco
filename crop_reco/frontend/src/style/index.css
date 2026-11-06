@@ -1,15 +1,36 @@
+/* ===== Global: variables, reset, fluid root size, shared button ===== */
 :root {
   --teal: #1b3532;
   --forest-dark: #1a2616;
   --forest-mid: #34501f;
   --forest-light: #546e2c;
   --white: #ffffff;
-  --container: 1920px;
-  --gutter: clamp(24px, 9vw, 170px);
-  --gutter-hero: clamp(24px, 12vw, 230px);
-  --banner-h: 58px;
+  --container: 120rem;
+  --gutter: clamp(1.5rem, 9vw, 10.625rem);
+  --gutter-hero: clamp(1.5rem, 12vw, 14.375rem);
+  --banner-h: 3.625rem;
   --font-body: "Inter", system-ui, sans-serif;
   --font-display: "Oswald", "Arial Narrow", sans-serif;
+}
+
+/* Fluid root size: everything in rem scales with it.
+   Phones: 14px -> 16px. Tablets: 14px. Desktop: 14px at 1536w, 16px at 1920w. */
+html {
+  font-size: clamp(14px, 4.1vw, 16px);
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+}
+
+@media (min-width: 601px) {
+  html {
+    font-size: 14px;
+  }
+}
+
+@media (min-width: 1025px) {
+  html {
+    font-size: clamp(14px, 0.8333vw, 18px);
+  }
 }
 
 *,
@@ -48,4 +69,32 @@ ul {
 :focus-visible {
   outline: 2px solid #f6cf4b;
   outline-offset: 3px;
+}
+
+/* Shared pill button (works on <a> and <button>) */
+.btn-pill {
+  display: inline-block;
+  padding: 0.875rem 2.5rem;
+  border: 0;
+  border-radius: 999px;
+  background: var(--white);
+  color: #111;
+  font: inherit;
+  font-size: 1rem;
+  font-weight: 500;
+  text-decoration: none;
+  cursor: pointer;
+  transition:
+    transform 0.15s,
+    background 0.15s;
+}
+
+.btn-pill:hover:not(:disabled) {
+  background: #f6cf4b;
+  transform: translateY(-2px);
+}
+
+.btn-pill:disabled {
+  opacity: 0.7;
+  cursor: wait;
 }

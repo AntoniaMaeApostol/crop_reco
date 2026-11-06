@@ -1,9 +1,9 @@
 .about__stats {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 20px;
-  padding: 36px;
-  border-radius: 20px;
+  gap: 1.25rem;
+  padding: 2.25rem;
+  border-radius: 1.25rem;
   background: rgba(255, 255, 255, 0.06);
   border: 1px solid rgba(255, 255, 255, 0.14);
   text-align: center;
@@ -19,28 +19,28 @@
 }
 
 .about__stats span {
-  font-size: 15px;
+  font-size: 0.9375rem;
   opacity: 0.85;
 }
 
 .about__chips {
   display: flex;
   flex-wrap: wrap;
-  gap: 10px;
+  gap: 0.625rem;
 }
 
 .about__chip {
-  padding: 8px 18px;
+  padding: 0.5rem 1.125rem;
   border-radius: 999px;
   border: 1px solid rgba(255, 255, 255, 0.3);
   background: rgba(0, 0, 0, 0.2);
-  font-size: 14px;
+  font-size: 0.875rem;
 }
 
 .about__note {
   width: 100%;
-  margin: 20px 0 0;
-  font-size: 13px;
+  margin: 1.25rem 0 0;
+  font-size: 0.8125rem;
   line-height: 1.6;
   opacity: 0.65;
 }
@@ -48,6 +48,6 @@
 @media (max-width: 600px) {
   .about__stats {
     grid-template-columns: 1fr;
-    padding: 24px;
+    padding: 1.5rem;
   }
 }

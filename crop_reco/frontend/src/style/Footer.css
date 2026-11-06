@@ -1,16 +1,16 @@
 .footer {
-  min-height: 94px;
+  min-height: 5.875rem;
   background: var(--teal);
 }
 
 .footer__inner {
   max-width: var(--container);
   margin: 0 auto;
-  padding: 32px var(--gutter);
+  padding: 2rem var(--gutter);
 }
 
 .footer p {
   margin: 0;
-  font-size: 13px;
+  font-size: 0.8125rem;
   opacity: 0.7;
 }

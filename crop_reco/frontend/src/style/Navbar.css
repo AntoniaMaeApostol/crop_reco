@@ -9,7 +9,7 @@
 .navbar__inner {
   max-width: var(--container);
   margin: 0 auto;
-  padding: 28px var(--gutter) 12px;
+  padding: 1.75rem var(--gutter) 0.75rem;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -22,35 +22,36 @@
 
 .navbar__brand img {
   display: block;
-  height: 56px;
+  height: 3.5rem;
   width: auto;
   max-width: none;
 }
 
 .navbar__links {
   display: flex;
-  gap: 30px;
+  gap: 1.875rem;
 }
 
 .navbar__links a {
-  font-size: 14px;
+  font-size: 0.875rem;
   font-weight: 600;
   text-decoration: none;
-  padding: 6px 0;
+  padding: 0.375rem 0;
   border-bottom: 2px solid transparent;
   transition: border-color 0.2s;
 }
 
+/*gi hawa nako kay i think pangit na nice mwehehe
 .navbar__links a:hover,
 .navbar__links a.active {
   border-bottom-color: #f6cf4b;
-}
+}*/
 
 @media (max-width: 600px) {
   .navbar__brand img {
-    height: 44px;
+    height: 2.75rem;
   }
   .navbar__links {
-    gap: 18px;
+    gap: 1.125rem;
   }
 }

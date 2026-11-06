@@ -1,51 +1,51 @@
 .guide__range {
   display: inline-block;
-  margin-bottom: 10px;
+  margin-bottom: 0.625rem;
   color: #f6cf4b;
-  font-size: 13px;
+  font-size: 0.8125rem;
   font-weight: 600;
 }
 
 .guide__tips {
   display: grid;
-  gap: 12px;
-  max-width: 760px;
+  gap: 0.75rem;
+  max-width: 47.5rem;
 }
 
 .guide__tips li {
   position: relative;
-  padding: 16px 20px 16px 50px;
-  border-radius: 14px;
+  padding: 1rem 1.25rem 1rem 3.125rem;
+  border-radius: 0.875rem;
   background: rgba(255, 255, 255, 0.06);
   border: 1px solid rgba(255, 255, 255, 0.14);
-  font-size: 15px;
+  font-size: 0.9375rem;
   line-height: 1.5;
 }
 
 .guide__tips li::before {
   content: "✓";
   position: absolute;
-  left: 18px;
-  top: 14px;
+  left: 1.125rem;
+  top: 0.875rem;
   color: #67b348;
   font-weight: 700;
 }
 
 .guide__faq {
   display: grid;
-  gap: 12px;
-  max-width: 800px;
+  gap: 0.75rem;
+  max-width: 50rem;
 }
 
 .guide__faq details {
-  border-radius: 14px;
+  border-radius: 0.875rem;
   background: rgba(255, 255, 255, 0.06);
   border: 1px solid rgba(255, 255, 255, 0.14);
 }
 
 .guide__faq summary {
   position: relative;
-  padding: 18px 54px 18px 22px;
+  padding: 1.125rem 3.375rem 1.125rem 1.375rem;
   font-weight: 600;
   cursor: pointer;
   list-style: none;
@@ -58,10 +58,10 @@
 .guide__faq summary::after {
   content: "";
   position: absolute;
-  right: 24px;
+  right: 1.5rem;
   top: 50%;
-  width: 9px;
-  height: 9px;
+  width: 0.5625rem;
+  height: 0.5625rem;
   border-right: 2px solid #f6cf4b;
   border-bottom: 2px solid #f6cf4b;
   transform: translateY(-70%) rotate(45deg);
@@ -74,8 +74,8 @@
 
 .guide__faq p {
   margin: 0;
-  padding: 0 22px 20px;
-  font-size: 15px;
+  padding: 0 1.375rem 1.25rem;
+  font-size: 0.9375rem;
   line-height: 1.6;
   opacity: 0.85;
 }
