@@ -49,6 +49,19 @@ crop_tips_db = {
     'coffee': {'season': 'Post-monsoon / Shaded', 'water': 'High', 'ph': '6.0 – 6.5'}
 }
 
+# Fertilizer remarks database sourced directly from your dataset sheet
+fertilizer_remarks_db = {
+    'Compost': 'Enhances organic matter and improves soil structure. Prefer this for low-carbon soils to boost soil health naturally.',
+    'Balanced': 'Provides a balanced mix of nitrogen, phosphorus, and potassium for loamy soils. Prefer this for general-purpose fertilization in well-structured soils.',
+    'Water Retainer': 'Improves water retention in dry soils. Prefer this for soils with low moisture to prevent water stress in plants.',
+    'Organic Fertilizer': 'Enhances fertility naturally, ideal for peaty soils. Prefer this to improve soil fertility while maintaining organic farming practices.',
+    'Gypsum': 'Corrects alkaline soil, adds calcium and sulfur. Prefer this to lower soil pH and enhance soil structure.',
+    'Lime': 'Neutralizes acidic soil and improves pH balance. Prefer this to correct low soil pH, improving nutrient availability.',
+    'DAP': 'Rich in phosphorus, essential for root development. Prefer this for phosphorus-deficient soils to improve plant establishment.',
+    'Urea': 'Provides high nitrogen, ideal for rapid leafy growth. Prefer this for nitrogen-deficient soils as it supports vegetative growth.',
+    'Muriate of Potash': 'High potassium content, improves fruit and flower quality. Prefer this for potassium-deficient soils to enhance crop productivity.'
+}
+
 @app.route('/predict', methods=['POST'])
 def predict():
     data = request.get_json()
@@ -84,7 +97,7 @@ def predict():
         confidence = 92.0
         other_options = ['Jute', 'Coconut', 'Papaya']
 
-    # Predict Fertilizer using fertilizer model
+    # Predict Fertilizer using fertilizer model and map remarks
     recommended_fertilizers = []
     if fertilizer_model is not None:
         try:
@@ -124,10 +137,17 @@ def predict():
                 
             fert_input_df = pd.DataFrame([row_dict])
             
-            pred_fert = fertilizer_model.predict(fert_input_df)[0]
+            pred_fert = str(fertilizer_model.predict(fert_input_df)[0])
+            
+            # Fetch remark description from dictionary, or fallback if unknown
+            remark_text = fertilizer_remarks_db.get(
+                pred_fert, 
+                'Recommended dynamically by your machine learning fertilizer model.'
+            )
+            
             recommended_fertilizers.append({
-                'name': str(pred_fert),
-                'use': 'Recommended dynamically by your machine learning fertilizer model.'
+                'name': pred_fert,
+                'use': remark_text
             })
         except Exception as err:
             print("Error running fertilizer model prediction:", err)
